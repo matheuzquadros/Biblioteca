@@ -7,11 +7,11 @@ namespace Biblioteca.Models
 {
     public class Unidade
     {
-        private int id { get; set; }
-        private string cep { get; set; }
-        private IList <Estante> estantes { get; set; }
-        private string estado { get; set; }
-        private string cidade { get; set; }
+        public int Id { get; set; }
+        public string Cep { get; set; }
+        public IList <Estante> Estantes { get; set; }
+        public string Estado { get; set; }
+        public string Cidade { get; set; }
 
     }
 }

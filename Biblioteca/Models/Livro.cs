@@ -7,11 +7,12 @@ namespace Biblioteca.Models
 {
     public class Livro
     {
-        private int id { get; set; }
-        private string isbn { get; set; }
-        private int numeroPaginas { get; set; }
-        private string autor { get; set; }
-        private DateTime lancamento { get; set; }
+        public int Id { get; set; }
+        public string Isbn { get; set; }
+        public string Titulo { get; set; }
+        public int NumeroPaginas { get; set; }
+        public string Autor { get; set; }
+        public DateTime Lancamento { get; set; }
 
     }
 }

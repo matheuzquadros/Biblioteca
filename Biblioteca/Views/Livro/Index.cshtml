@@ -1,0 +1,12 @@
+﻿
+@model Biblioteca.ViewModel.LivroIndexViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@foreach (var livro in Model.Livros)
+{
+    <h2>@livro.Id - @livro.Titulo</h2>
+    
+}
+

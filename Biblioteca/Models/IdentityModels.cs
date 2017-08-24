@@ -13,5 +13,7 @@ namespace Biblioteca.Models
             : base("DefaultConnection")
         {
         }
+
+        public System.Data.Entity.DbSet<Biblioteca.Models.Cliente> Clientes { get; set; }
     }
 }

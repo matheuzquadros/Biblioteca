@@ -7,10 +7,10 @@ namespace Biblioteca.Models
 {
     public class Estante
     {
-        private int id { get; set; }
-        private string nome { get; set; }
-        private IList<Exemplar> exemplares{ get; set; }
-        private int capacidade { get; set; }
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public IList<Exemplar> Exemplares{ get; set; }
+        public int Capacidade { get; set; }
 
 
     }

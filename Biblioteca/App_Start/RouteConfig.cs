@@ -18,6 +18,12 @@ namespace Biblioteca
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Livro",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Livro", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }

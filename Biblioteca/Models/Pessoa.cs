@@ -7,11 +7,11 @@ namespace Biblioteca.Models
 {
     public abstract class Pessoa
     {
-        private int id { get; set; }
-        private string nome{ get; set; }
-        private string cpf{ get; set; }
-        private DateTime dataNascimento{ get; set; }
-        private string senha { get; set; }
+        public int Id { get; set; }
+        public string Nome{ get; set; }
+        public string Cpf{ get; set; }
+        public DateTime DataNascimento{ get; set; }
+        public string Senha { get; set; }
 
 
     }
