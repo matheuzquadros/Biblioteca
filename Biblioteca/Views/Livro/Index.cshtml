@@ -4,9 +4,23 @@
     ViewBag.Title = "Index";
 }
 
-@foreach (var livro in Model.Livros)
-{
-    <h2>@livro.Id - @livro.Titulo</h2>
-    
-}
+<div class="row books">
+    @foreach (var livro in Model.Livros)
+    {
+        <div class="col-xs-12 col-sm-6 col-md-2">
+            <div class="book-item">
+                <div class="content">
+                    <picture>
+                        <img src="@Url.Content("~/imagens/livros/" + System.IO.Path.GetFileName(livro.UrlCapa))" />
+                    </picture>
+                    <div class="basic-information">
+                        <strong>@livro.Titulo</strong>
+                        <span>@livro.Autor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        }
+    </div>
 
