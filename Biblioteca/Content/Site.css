@@ -48,12 +48,14 @@ input[type="checkbox"].input-validation-error {
 }
 
 .books{
-    margin-top: 50px;
+    margin-top: 40px;
 }
 .book-item{
+    margin-top: 20px;
     max-height: 300px;
     background-color: white;
     cursor: pointer;
+    height: 285px;
 }
 .book-item picture{
     width: 100%;

@@ -19,6 +19,18 @@ namespace Biblioteca.Controllers
         livroViewModel.Livros = new List<Livro>
         {
             new Livro {Id = 1, NumeroPaginas= 312, Titulo = "Bilhões e Bilhões", Autor="Carl Sagan", UrlCapa="bilhoesbilhoes.jpg"},
+            new Livro {Id = 2, NumeroPaginas= 521, Titulo = "As cronicas de arthur", Autor="Bernard cornwell", UrlCapa="reiDoInverno.jpg"},
+            new Livro {Id = 1, NumeroPaginas= 312, Titulo = "Bilhões e Bilhões", Autor="Carl Sagan", UrlCapa="bilhoesbilhoes.jpg"},
+            new Livro {Id = 2, NumeroPaginas= 521, Titulo = "As cronicas de arthur", Autor="Bernard cornwell", UrlCapa="reiDoInverno.jpg"},
+            new Livro {Id = 1, NumeroPaginas= 312, Titulo = "Bilhões e Bilhões", Autor="Carl Sagan", UrlCapa="bilhoesbilhoes.jpg"},
+            new Livro {Id = 2, NumeroPaginas= 521, Titulo = "As cronicas de arthur", Autor="Bernard cornwell", UrlCapa="reiDoInverno.jpg"},
+            new Livro {Id = 1, NumeroPaginas= 312, Titulo = "Bilhões e Bilhões", Autor="Carl Sagan", UrlCapa="bilhoesbilhoes.jpg"},
+            new Livro {Id = 2, NumeroPaginas= 521, Titulo = "As cronicas de arthur", Autor="Bernard cornwell", UrlCapa="reiDoInverno.jpg"},
+            new Livro {Id = 1, NumeroPaginas= 312, Titulo = "Bilhões e Bilhões", Autor="Carl Sagan", UrlCapa="bilhoesbilhoes.jpg"},
+            new Livro {Id = 2, NumeroPaginas= 521, Titulo = "As cronicas de arthur", Autor="Bernard cornwell", UrlCapa="reiDoInverno.jpg"},
+            new Livro {Id = 1, NumeroPaginas= 312, Titulo = "Bilhões e Bilhões", Autor="Carl Sagan", UrlCapa="bilhoesbilhoes.jpg"},
+            new Livro {Id = 2, NumeroPaginas= 521, Titulo = "As cronicas de arthur", Autor="Bernard cornwell", UrlCapa="reiDoInverno.jpg"},
+            new Livro {Id = 1, NumeroPaginas= 312, Titulo = "Bilhões e Bilhões", Autor="Carl Sagan", UrlCapa="bilhoesbilhoes.jpg"},
             new Livro {Id = 2, NumeroPaginas= 521, Titulo = "As cronicas de arthur", Autor="Bernard cornwell", UrlCapa="reiDoInverno.jpg"}
         };
 
