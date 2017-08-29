@@ -24,6 +24,12 @@ namespace Biblioteca
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Livro", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+                name: "Cliente",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Cliente", action = "Index", id = UrlParameter.Optional }
+            );
         }
     }
 }

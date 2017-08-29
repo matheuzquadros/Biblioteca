@@ -1,0 +1,35 @@
+﻿@model Biblioteca.ViewModels.ClienteIndexViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Clientes</h2>
+
+<div >
+    <table class="table table-hover">
+        <thead class="thead-inverse ">
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Data de nascimento</th>
+                <th>CPF</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                @foreach (var cliente in Model.Clientes)
+                {
+                    <tr onclick="location.href = '@(Url.Action("Details", "Cliente", new { id = cliente.Id }))'">
+                        <th scope="row">@cliente.Id</th>
+                        <td>@cliente.Nome</td>
+                        <td>@cliente.DataNascimento</td>
+                        <td>@cliente.Cpf</td>
+                    </tr>
+                }
+
+                   
+        </tbody>
+    </table>
+</div>
+
+

@@ -10,13 +10,7 @@ namespace Biblioteca.Controllers
 {
     public class LivroController : Controller
     {
-        public LivroIndexViewModel livroViewModel = new LivroIndexViewModel();
-
-        
-        // GET: Livro
-        public ActionResult Index()
-        {
-        livroViewModel.Livros = new List<Livro>
+        public List<Livro> Livros = new List<Livro>
         {
             new Livro {Id = 1, NumeroPaginas= 312, Titulo = "Bilhões e Bilhões", Autor="Carl Sagan", UrlCapa="bilhoesbilhoes.jpg"},
             new Livro {Id = 2, NumeroPaginas= 521, Titulo = "As cronicas de arthur", Autor="Bernard cornwell", UrlCapa="reiDoInverno.jpg"},
@@ -34,7 +28,15 @@ namespace Biblioteca.Controllers
             new Livro {Id = 2, NumeroPaginas= 521, Titulo = "As cronicas de arthur", Autor="Bernard cornwell", UrlCapa="reiDoInverno.jpg"}
         };
 
-            return View(livroViewModel);
+
+        // GET: Livro
+        public ActionResult Index()
+        {
+            var viewModel = new LivroIndexViewModel
+            {
+                Livros = Livros
+            };
+            return View(viewModel);
         }
     }
 }

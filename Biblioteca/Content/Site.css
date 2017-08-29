@@ -80,3 +80,17 @@ input[type="checkbox"].input-validation-error {
     margin-left: 7px;
     
 }
+
+.table-hover{
+    cursor: pointer;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #292b2c !important;
+}
+
+.thead-inverse th {
+  color: #fff;
+  background-color: #292b2c;
+}
