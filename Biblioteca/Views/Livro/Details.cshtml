@@ -1,0 +1,28 @@
+﻿@model Biblioteca.Models.Livro
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div class="row">
+    <div class="book-image-wrapper col-md-4">
+        <picture>
+            <img src="@Url.Content("~/imagens/livros/" + System.IO.Path.GetFileName(Model.UrlCapa))" />
+        </picture>
+    </div>
+    <div class="col-md-8">
+        <div class="book-title">
+            <h3>@Model.Titulo</h3>
+            <span>@Model.Autor</span>
+        </div>
+        <div class="book-content">
+            <section>
+                @Model.Prefacio
+            </section>
+            <section>
+                @Model.NumeroPaginas
+            </section>
+        </div>
+    </div>
+</div>
+
