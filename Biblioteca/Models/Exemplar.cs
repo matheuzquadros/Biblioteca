@@ -8,7 +8,7 @@ namespace Biblioteca.Models
     public class Exemplar
     {
         public int Id { get; set; }
-        public Livro Livro;
+        public Book Book;
 
     }
 }

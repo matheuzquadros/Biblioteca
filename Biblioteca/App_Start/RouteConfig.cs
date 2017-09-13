@@ -20,9 +20,9 @@ namespace Biblioteca
             );
 
             routes.MapRoute(
-                name: "Livro",
+                name: "Book",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Livro", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Book", action = "Index", id = UrlParameter.Optional }
             );
 
             routes.MapRoute(

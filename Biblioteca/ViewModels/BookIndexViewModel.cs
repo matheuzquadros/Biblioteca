@@ -6,9 +6,9 @@ using System.Web;
 
 namespace Biblioteca.ViewModel
 {
-    public class LivroIndexViewModel
+    public class BookIndexViewModel
     {
-        public List<Livro> Livros { get; set; }
+        public List<Book> Books { get; set; }
 
     }
 }

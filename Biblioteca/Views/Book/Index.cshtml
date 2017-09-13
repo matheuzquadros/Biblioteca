@@ -1,0 +1,26 @@
+﻿
+@model Biblioteca.ViewModel.BookIndexViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row books">
+    @foreach (var book in Model.Books)
+    {
+        <div class="col-xs-12 col-sm-6 col-md-2">
+            <div class="book-item" onclick="location.href = '@(Url.Action("Details", "Book", new { id = book.Id }))'">
+                <div class="content">
+                    <picture>
+                        <img src="@Url.Content("~/imagens/livros/" + System.IO.Path.GetFileName(book.UrlCapa))" />
+                    </picture>
+                    <div class="basic-information">
+                        <strong>@book.Titulo</strong>
+                        <span>@book.Autor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        }
+    </div>
+

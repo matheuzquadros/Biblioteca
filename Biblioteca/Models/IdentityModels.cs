@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
 
 namespace Biblioteca.Models
 {
@@ -13,6 +14,9 @@ namespace Biblioteca.Models
             : base("DefaultConnection")
         {
         }
+
+        public DbSet<Exemplar> Exemplary { get; set; }
+        public DbSet<Book> Books { get; set; }
 
         public System.Data.Entity.DbSet<Biblioteca.Models.Cliente> Clientes { get; set; }
     }

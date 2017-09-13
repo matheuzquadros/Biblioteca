@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Biblioteca.Models
 {
-    public class Livro
+    public class Book
     {
         public int Id { get; set; }
         public string Isbn { get; set; }
