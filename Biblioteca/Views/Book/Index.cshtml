@@ -1,11 +1,11 @@
 ﻿
-@model Biblioteca.ViewModel.BookIndexViewModel
+@model IEnumerable<Biblioteca.Models.Book>
 @{
     ViewBag.Title = "Index";
 }
 
 <div class="row books">
-    @foreach (var book in Model.Books)
+    @foreach (var book in Model)
     {
         <div class="col-xs-12 col-sm-6 col-md-2">
             <div class="book-item" onclick="location.href = '@(Url.Action("Details", "Book", new { id = book.Id }))'">
