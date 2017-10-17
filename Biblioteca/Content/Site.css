@@ -96,9 +96,11 @@ input[type="checkbox"].input-validation-error {
 }
 
 .form-group{
-    display: inline-block !important;
+    max-width: 30%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.form-group > label{
-    padding: 0 !important;
+.form-group *{
+    min-width: 100%;
 }
