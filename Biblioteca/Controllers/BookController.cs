@@ -45,6 +45,11 @@ namespace Biblioteca.Controllers
         [HttpPost]
         public ActionResult Save(Book book) 
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Edit");
+            }
+
             if (book.Id == 0)
             {
                 _context.Books.Add(book);

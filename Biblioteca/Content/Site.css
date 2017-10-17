@@ -94,3 +94,11 @@ input[type="checkbox"].input-validation-error {
   color: #fff;
   background-color: #292b2c;
 }
+
+.form-group{
+    display: inline-block !important;
+}
+
+.form-group > label{
+    padding: 0 !important;
+}
