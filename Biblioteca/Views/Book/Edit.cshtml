@@ -7,14 +7,14 @@
 <h2>Edit</h2>
 
 @using (Html.BeginForm("Save", "Book"))
-{
-    @Html.AntiForgeryToken()
+{   
+
     <div class="row ">
         <div class="form-container">
             <h4>Book</h4>
             <hr />
             @Html.ValidationSummary(true)
-
+            @Html.AntiForgeryToken()
             @Html.HiddenFor(model => model.Id)
             <div class="form-group">
                 @Html.LabelFor(model => model.Isbn, new { @class = "control-label" })
@@ -68,3 +68,18 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
+
+@section scripts
+
+{
+    @Scripts.Render("~/bundles/jqueryval")
+<script>
+    $(function () {
+        $.validator.methods.date = function (value, element) {
+            Globalize.culture("pr-BR");
+            return this.optional(element) || Globalize.parseDate(value) !== null;
+        }
+    })
+    </script>
+
+}

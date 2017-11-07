@@ -41,7 +41,6 @@ namespace Biblioteca.Models
         
         [Required]
         [Display(Name = "Data de lançamento")]
-
         public DateTime Lancamento { get; set; }
 
     }

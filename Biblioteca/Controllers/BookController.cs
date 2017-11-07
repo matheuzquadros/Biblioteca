@@ -42,7 +42,9 @@ namespace Biblioteca.Controllers
             return View("Edit");
         }
 
+ 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Book book) 
         {
             if (!ModelState.IsValid)
@@ -71,6 +73,7 @@ namespace Biblioteca.Controllers
 
             return RedirectToAction("Index");
         }
+
 
         public ActionResult Edit(int id)
         {
