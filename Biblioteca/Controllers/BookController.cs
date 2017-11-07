@@ -38,8 +38,8 @@ namespace Biblioteca.Controllers
 
         public ActionResult New()
         {
-  
-            return View("Edit");
+            var book = new Book();
+            return View("Edit", book);
         }
 
  
