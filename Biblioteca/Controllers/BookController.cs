@@ -87,6 +87,18 @@ namespace Biblioteca.Controllers
             return View("Edit", customer);
         }
 
+        public ActionResult Remove(int id)
+       {
+           var client = _context.Books.Single(m => m.Id == id);
+
+           if (client != null) _context.Books.Remove(client);
+
+           _context.SaveChanges();
+
+           return RedirectToAction("Index");
+       }
+
+
 
     }
 }
