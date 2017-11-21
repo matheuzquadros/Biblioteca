@@ -8,68 +8,65 @@ using System.Web.Mvc;
 
 namespace Biblioteca.Controllers
 {
-    public class ClienteController : Controller
+    public class ExemplarController : Controller
     {
-
         private ApplicationDbContext _context;
 
-        public ClienteController()
+        public ExemplarController()
         {
            _context = new ApplicationDbContext();
         }
 
-
-
-        // GET: Cliente
+        //
+        // GET: /Exemplar/
         public ActionResult Index()
         {
-            var viewModel = _context.Users.ToList();
-
+            var viewModel = _context.Exemplares.ToList();
             return View(viewModel);
         }
 
         public ActionResult Details(int id)
         {
-            var user = _context.Users.ToList().Where(c => c.Id == id).SingleOrDefault();
-            if (user == null)
+            var exemplar = _context.Users.ToList().Where(c => c.Id == id).SingleOrDefault();
+            if (exemplar == null)
             {
                 return HttpNotFound();
             }
             else
             {
-                return View(user);
+                return View(exemplar);
             }
         }
 
         public ActionResult New()
         {
-            var user = new Cliente();
-            return View("Edit", user);
+            var viewModel = new ExemplarFormViewModel()
+            {
+                Exemplar = new Exemplar(),
+                Books = _context.Books.ToList()
+            };
+            return View("Edit", viewModel);
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Cliente user)
+        public ActionResult Save(Exemplar exemplar)
         {
             if (!ModelState.IsValid)
             {
                 return View("Edit");
             }
 
-            if (user.Id == 0)
+            if (exemplar.Id == 0)
             {
-                _context.Users.Add(user);
+                _context.Exemplares.Add(exemplar);
             }
             else
             {
-                var userInDb = _context.Users.Single(c => c.Id == user.Id);
+                var exemplarInDb = _context.Exemplares.Single(c => c.Id == exemplar.Id);
 
-                userInDb.Nome = user.Nome;
-                userInDb.Email = user.Email;
-                userInDb.Cpf = user.Cpf;
-                userInDb.DataNascimento = user.DataNascimento;
-                userInDb.Senha = user.Senha;
+    
             }
 
             _context.SaveChanges();
@@ -80,25 +77,25 @@ namespace Biblioteca.Controllers
 
         public ActionResult Edit(int id)
         {
-            var user = _context.Users.SingleOrDefault(c => c.Id == id);
+            var exemplar = _context.Books.SingleOrDefault(c => c.Id == id);
 
-            if (user == null)
+            if (exemplar == null)
                 return HttpNotFound();
 
 
 
-            return View("Edit", user);
+            return View("Edit", exemplar);
         }
 
         public ActionResult Remove(int id)
         {
-            var user = _context.Users.Single(m => m.Id == id);
+            var exemplar = _context.Exemplares.Single(m => m.Id == id);
 
-            if (user != null) _context.Users.Remove(user);
+            if (exemplar != null) _context.Exemplares.Remove(exemplar);
 
             _context.SaveChanges();
 
             return RedirectToAction("Index");
         }
-    }
+	}
 }

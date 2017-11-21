@@ -15,9 +15,13 @@ namespace Biblioteca.Models
         {
         }
 
-        public DbSet<Exemplar> Exemplary { get; set; }
+        public DbSet<Exemplar> Exemplares { get; set; }
         public DbSet<Book> Books { get; set; }
 
-        public System.Data.Entity.DbSet<Biblioteca.Models.Cliente> Clientes { get; set; }
+        public DbSet<Cliente> Users { get; set; }
+
+        public DbSet<Categoria> Category { get; set; }
+
+        //public System.Data.Entity.DbSet<Biblioteca.Models.Cliente> Clientes { get; set; }
     }
 }

@@ -1,0 +1,20 @@
+﻿@model Biblioteca.Models.Exemplar
+
+<div>
+    <h4>Exemplar</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Book.Isbn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book.Isbn)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -20,6 +20,10 @@ namespace Biblioteca.Models
         [Display(Name = "Título")]
         public string Titulo { get; set; }
 
+        public Categoria Categoria { get; set; }
+        
+        [Display(Name = "Categoria")]
+        public int CategoriaId { get; set; }
   
         [StringLength(255)]
         [Display(Name = "Imagem da Capa")]
