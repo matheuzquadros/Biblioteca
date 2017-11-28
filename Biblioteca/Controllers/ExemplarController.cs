@@ -22,18 +22,24 @@ namespace Biblioteca.Controllers
         public ActionResult Index()
         {
             var viewModel = _context.Exemplares.ToList();
+            foreach(var exemplar in viewModel){
+                exemplar.Book = _context.Books.Where(c => c.Id == exemplar.BookId).SingleOrDefault();
+            }
             return View(viewModel);
         }
 
         public ActionResult Details(int id)
         {
-            var exemplar = _context.Users.ToList().Where(c => c.Id == id).SingleOrDefault();
+            var exemplar = _context.Exemplares.ToList().Where(c => c.Id == id).SingleOrDefault();
             if (exemplar == null)
             {
                 return HttpNotFound();
             }
             else
             {
+                
+               exemplar.Book = _context.Books.Where(c => c.Id == exemplar.BookId).SingleOrDefault();
+                
                 return View(exemplar);
             }
         }
@@ -77,14 +83,19 @@ namespace Biblioteca.Controllers
 
         public ActionResult Edit(int id)
         {
-            var exemplar = _context.Books.SingleOrDefault(c => c.Id == id);
+            var exemplar = _context.Exemplares.SingleOrDefault(c => c.Id == id);
 
             if (exemplar == null)
                 return HttpNotFound();
 
+            var viewModel = new ExemplarFormViewModel()
+            {
+                Exemplar = exemplar,
+                Books = _context.Books.ToList()
+            };
 
 
-            return View("Edit", exemplar);
+            return View("Edit", viewModel);
         }
 
         public ActionResult Remove(int id)

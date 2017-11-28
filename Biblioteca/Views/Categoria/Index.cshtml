@@ -1,33 +1,32 @@
 ﻿@model IEnumerable<Biblioteca.Models.Categoria>
+    <h1>Categorias</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.Nome)</th>
+                <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.Descricao)</th>
+                <th>Ações</th>
+ 
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+{
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Nome)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Descricao)</td>
+                    
+                    <td>
+                        <button class="btn btn-secundary" onclick="location.href = '@(Url.Action("Details", "Categoria", new { id = item.Id }))'"> Detalhes</button>
+                        <button class="btn btn-primary" onclick="location.href = '@(Url.Action("Edit", "Categoria", new { id = item.Id }))'"> Editar</button>
+                        <button class="btn btn-danger" onclick="location.href = '@(Url.Action("Remove", "Categoria", new { id = item.Id }))'"> Remover</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 
-<p>
-    @Html.ActionLink("Create New", "New")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th></th>
-    </tr>
+<button class="btn btn-lg btn-success" onclick="location.href = '@(Url.Action("New", "Categoria"))'">
+    Criar Novo
+</button>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
-</table>

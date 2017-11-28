@@ -1,4 +1,4 @@
-﻿@model Biblioteca.Models.Book
+﻿@model Biblioteca.ViewModels.BookFormViewModel
 
 @{
     ViewBag.Title = "Editar Livro";
@@ -15,47 +15,54 @@
             <hr />
             @Html.ValidationSummary(true)
             @Html.AntiForgeryToken()
-            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.Book.Id)
             <div class="form-group">
-                @Html.LabelFor(model => model.Isbn, new { @class = "control-label" })
-                @Html.TextBoxFor(model => model.Isbn, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Isbn)
+                @Html.LabelFor(model => model.Book.Isbn, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Book.Isbn, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.Isbn)
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Titulo, new { @class = "control-label" })
-                @Html.TextBoxFor(model => model.Titulo, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Titulo)
+                @Html.LabelFor(model => model.Book.Titulo, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Book.Titulo, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.Titulo)
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.UrlCapa, new { @class = "control-label" })
-                @Html.TextBoxFor(model => model.UrlCapa, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.UrlCapa)
+                @Html.LabelFor(model => model.Book.UrlCapa, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Book.UrlCapa, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.UrlCapa)
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Prefacio, new { @class = "control-label" })
-                @Html.TextBoxFor(model => model.Prefacio, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Prefacio)
+                @Html.LabelFor(model => model.Book.Prefacio, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Book.Prefacio, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.Prefacio)
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.NumeroPaginas, new { @class = "control-label" })
-                @Html.TextBoxFor(model => model.NumeroPaginas, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.NumeroPaginas)
+                @Html.DropDownListFor(m => m.Book.CategoriaId,
+       new SelectList(Model.Categorias, "Id", "Nome"),
+                        "Selecione a categoria", new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Book.CategoriaId)
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Autor, new { @class = "control-label" })
-                @Html.TextBoxFor(model => model.Autor, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Autor)
+                @Html.LabelFor(model => model.Book.NumeroPaginas, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Book.NumeroPaginas, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.NumeroPaginas)
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Lancamento, new { @class = "control-label" })
-                @Html.TextBoxFor(model => model.Lancamento, new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Lancamento)
+                @Html.LabelFor(model => model.Book.Autor, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Book.Autor, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.Autor)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Book.Lancamento, new { @class = "control-label" })
+                @Html.TextBoxFor(model => model.Book.Lancamento, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Book.Lancamento)
 
             </div>
 

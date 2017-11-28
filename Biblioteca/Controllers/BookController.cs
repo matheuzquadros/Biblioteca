@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Models;
+using Biblioteca.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,14 +33,20 @@ namespace Biblioteca.Controllers
                 return HttpNotFound();
             }else
             {
+                book.Categoria = _context.Category.ToList().Where(c => c.Id == book.CategoriaId).SingleOrDefault();
                 return View(book);
             }
         }
 
         public ActionResult New()
         {
-            var book = new Book();
-            return View("Edit", book);
+
+            var viewModel = new BookFormViewModel()
+            {
+                Book = new Book(),
+                Categorias = _context.Category.ToList()
+            };
+            return View("Edit", viewModel);
         }
 
  
@@ -49,7 +56,13 @@ namespace Biblioteca.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("Edit");
+                var viewModel = new BookFormViewModel()
+                {
+                    Book = book,
+                    Categorias = _context.Category.ToList()
+                };
+
+                return View("Edit", viewModel);
             }
 
             if (book.Id == 0)
@@ -64,6 +77,8 @@ namespace Biblioteca.Controllers
                 bookInDb.Lancamento = book.Lancamento;
                 bookInDb.NumeroPaginas = book.NumeroPaginas;
                 bookInDb.Prefacio = book.Prefacio;
+                bookInDb.Categoria = _context.Category.Single(c => c.Id == book.CategoriaId);
+                bookInDb.CategoriaId = book.CategoriaId;
                 bookInDb.UrlCapa = book.UrlCapa;
                 bookInDb.Titulo = book.Titulo;
                 bookInDb.Autor = book.Autor;
@@ -77,14 +92,19 @@ namespace Biblioteca.Controllers
 
         public ActionResult Edit(int id)
         {
-            var customer = _context.Books.SingleOrDefault(c => c.Id == id);
+            var book = _context.Books.SingleOrDefault(c => c.Id == id);
 
-            if (customer == null)
+            if (book == null)
                 return HttpNotFound();
 
+            var viewModel = new BookFormViewModel()
+            {
+                Book = book,
+                Categorias = _context.Category.ToList()
+            };
             
 
-            return View("Edit", customer);
+            return View("Edit", viewModel);
         }
 
         public ActionResult Remove(int id)

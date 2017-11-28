@@ -12,7 +12,7 @@ namespace Biblioteca.Models
 
         [Required]
         [StringLength(70)]
-        [Display(Name = "Nome")]
+        [Display(Name = "Categoria")]
         public string Nome { get; set; }
 
         [Required]

@@ -4,23 +4,42 @@
     ViewBag.Title = "Index";
 }
 
-<div class="row books">
-    @foreach (var book in Model)
-    {
-        <div class="col-xs-12 col-sm-6 col-md-2">
-            <div class="book-item" onclick="location.href = '@(Url.Action("Details", "Book", new { id = book.Id }))'">
-                <div class="content">
-                    <picture>
-                        <img src="@Url.Content("~/imagens/livros/" + System.IO.Path.GetFileName(book.UrlCapa))" />
-                    </picture>
-                    <div class="basic-information">
-                        <strong>@book.Titulo</strong>
-                        <span>@book.Autor</span>
-                    </div>
-                </div>
-            </div>
-        </div>
 
+
+<h1>Livros</h1>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.Isbn)</th>
+            <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.Titulo)</th>
+            <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.Categoria.Nome)</th>
+            <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.Autor)</th>
+            <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.NumeroPaginas)</th>
+            <th>Ações</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Isbn)</td>
+                <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
+                <td>@Html.DisplayFor(modelItem => item.Categoria.Nome)</td>
+                <td>@Html.DisplayFor(modelItem => item.Autor)</td>
+                <td>@Html.DisplayFor(modelItem => item.NumeroPaginas)</td>
+                <td>
+                    <button class="btn btn-secundary" onclick="location.href = '@(Url.Action("Details", "Book", new { id = item.Id }))'"> Detalhes</button>
+                    <button class="btn btn-primary" onclick="location.href = '@(Url.Action("Edit", "Book", new { id = item.Id }))'"> Editar</button>
+                    <button class="btn btn-danger" onclick="location.href = '@(Url.Action("Remove", "Book", new { id = item.Id }))'"> Remover</button>
+                </td>
+            </tr>
         }
-    </div>
+    </tbody>
+</table>
+
+<button class="btn btn-lg btn-success" onclick="location.href = '@(Url.Action("New", "Book"))'">
+    Criar Novo
+</button>
+
 
