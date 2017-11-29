@@ -21,16 +21,16 @@ namespace Biblioteca.Controllers
         // GET: /Exemplar/
         public ActionResult Index()
         {
-            var viewModel = _context.Exemplares.ToList();
-            foreach(var exemplar in viewModel){
-                exemplar.Book = _context.Books.Where(c => c.Id == exemplar.BookId).SingleOrDefault();
-            }
+            var viewModel = _context.Exemplares.Include("Book").ToList();
+            //foreach(var exemplar in viewModel){
+            //    exemplar.Book = _context.Books.Where(c => c.Id == exemplar.BookId).SingleOrDefault();
+            //}
             return View(viewModel);
         }
 
         public ActionResult Details(int id)
         {
-            var exemplar = _context.Exemplares.ToList().Where(c => c.Id == id).SingleOrDefault();
+            var exemplar = _context.Exemplares.Include("Book").ToList().Where(c => c.Id == id).SingleOrDefault();
             if (exemplar == null)
             {
                 return HttpNotFound();
@@ -38,7 +38,7 @@ namespace Biblioteca.Controllers
             else
             {
                 
-               exemplar.Book = _context.Books.Where(c => c.Id == exemplar.BookId).SingleOrDefault();
+               
                 
                 return View(exemplar);
             }
