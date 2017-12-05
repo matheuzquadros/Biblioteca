@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -21,7 +22,15 @@ namespace Biblioteca.Controllers
         public ActionResult Index()
         {
             var viewModel = _context.Category.ToList();
-            return View(viewModel);
+            if (User.IsInRole("CanManageCustomers"))
+            {
+                return View(viewModel);
+            }
+            else
+            {
+                return View("IndexReadOnly", viewModel);
+            }
+            
         }
 
         public ActionResult Details(int id)
@@ -31,6 +40,10 @@ namespace Biblioteca.Controllers
             {
                 return HttpNotFound();
             }
+            else if (User.IsInRole("CanManageCustomers") == false)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
             else
             {
                 return View(categoria);
@@ -39,6 +52,10 @@ namespace Biblioteca.Controllers
 
         public ActionResult New()
         {
+            if(User.IsInRole("CanManageCustomers") == false){
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+
             var categoria = new Categoria();
             return View("Edit", categoria);
         }
@@ -48,6 +65,10 @@ namespace Biblioteca.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Save(Categoria categoria)
         {
+            if(User.IsInRole("CanManageCustomers") == false){
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+
             if (!ModelState.IsValid)
             {
                 return View("Edit");
@@ -74,6 +95,10 @@ namespace Biblioteca.Controllers
 
         public ActionResult Edit(int id)
         {
+            if(User.IsInRole("CanManageCustomers") == false){
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+
             var categoria = _context.Category.SingleOrDefault(c => c.Id == id);
 
             if (categoria == null)
@@ -86,6 +111,10 @@ namespace Biblioteca.Controllers
 
         public ActionResult Remove(int id)
         {
+            if(User.IsInRole("CanManageCustomers") == false){
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+
             var categoria = _context.Category.Single(m => m.Id == id);
 
             if (categoria != null) _context.Category.Remove(categoria);

@@ -9,8 +9,6 @@
             <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.Cpf)</th>
             <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.DataNascimento)</th>
             <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.Senha)</th>
-            <th class="col-md-3">Ações</th>
-
         </tr>
     </thead>
     <tbody>
@@ -22,16 +20,7 @@
                 <td>@Html.DisplayFor(modelItem => item.Cpf)</td>
                 <td>@Html.DisplayFor(modelItem => item.DataNascimento)</td>
                 <td>@Html.DisplayFor(modelItem => item.Senha)</td>
-                <td>
-                    <button class="btn btn-secundary" onclick="location.href = '@(Url.Action("Details", "Cliente", new { id = item.Id }))'"> Detalhes</button>
-                    <button class="btn btn-primary" onclick="location.href = '@(Url.Action("Edit", "Cliente", new { id = item.Id }))'"> Editar</button>
-                    <button class="btn btn-danger" onclick="location.href = '@(Url.Action("Remove", "Cliente", new { id = item.Id }))'"> Remover</button>
-                </td>
             </tr>
         }
     </tbody>
 </table>
-
-<button class="btn btn-lg btn-success" onclick="location.href = '@(Url.Action("New", "Cliente"))'">
-    Criar Novo
-</button>

@@ -104,3 +104,18 @@ input[type="checkbox"].input-validation-error {
 .form-group *{
     min-width: 100%;
 }
+
+.table *{
+    text-align: center !important;
+}
+
+
+.row-details{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.row-details > div{
+    display: inline-block !important;
+    float:none;
+}

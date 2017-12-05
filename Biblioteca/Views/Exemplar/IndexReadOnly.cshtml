@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Biblioteca.Models.Exemplar>
+
+<h1>Exemplares</h1>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.Id)</th>
+            <th scope="col" class="text-center">@Html.DisplayNameFor(model => model.Book.Titulo)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                <td>@Html.DisplayFor(modelItem => item.Book.Titulo)</td>
+            </tr>
+        }
+    </tbody>
+</table>

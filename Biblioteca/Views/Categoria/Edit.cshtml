@@ -3,31 +3,27 @@
 @using (Html.BeginForm("Save", "Categoria"))
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Categoria</h4>
+
+    <div class="form-container">
+        <h2>Informações da categoria</h2>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Nome, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome)
-                @Html.ValidationMessageFor(model => model.Nome)
-            </div>
+            @Html.LabelFor(model => model.Nome, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Nome)
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Descricao, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Descricao)
-                @Html.ValidationMessageFor(model => model.Descricao)
-            </div>
+            @Html.LabelFor(model => model.Descricao, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Descricao, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Descricao)
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>

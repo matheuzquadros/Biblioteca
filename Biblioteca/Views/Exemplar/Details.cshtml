@@ -1,76 +1,73 @@
 ﻿@model Biblioteca.Models.Exemplar
 
 
-    <h4>Exemplar</h4>
-	<hr />
+    <div class="row row-details">
+    <div class="col-sm-8">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        <h4 style="display: inline-block;">Informações do exemplar</h4>
+                        <button style="display: inline-block;" class="btn btn-primary pull-right" onclick="location.href = '@(Url.Action("Edit", "Exemplar", new { id = Model.Id }))'">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">@Html.DisplayNameFor(model => model.Id):</th>
+                    <td>@Html.DisplayFor(model => model.Id)</td>
+                </tr>
+                <tr data-toggle="collapse" data-target="#demo">
+                    <th scope="row">@Html.DisplayNameFor(model => model.Book):</th>
+                    <td>
+                        @Html.DisplayFor(model => model.Book.Titulo)
+                        <button class="btn btn-sm btn-secundary pull-right">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="false"></span>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <table id="demo" class="collapse table table-hover">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">
+                                        <h4 style="display: inline-block;">Informações do livro</h4>
 
-    <div class="row">
-        <div class="col-sm-8">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th colspan="2">
-                            <h4 style="display: inline-block;">Informações do exemplar</h4>
-                            <button style="display: inline-block;" class="btn btn-primary pull-right" onclick="location.href = '@(Url.Action("Edit", "Exemplar", new { id = Model.Id }))'">
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="false"></span>
-                            </button>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">@Html.DisplayNameFor(model => model.Id):</th>
-                        <td>@Html.DisplayFor(model => model.Id)</td>
-                    </tr>
-                    <tr data-toggle="collapse" data-target="#demo">
-                        <th scope="row">@Html.DisplayNameFor(model => model.Book):</th>
-                        <td>
-                            @Html.DisplayFor(model => model.Book.Titulo)
-                            <button class="btn btn-sm btn-secundary pull-right">
-                                <span class="glyphicon glyphicon-eye-open" aria-hidden="false"></span>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <table id="demo" class="collapse table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th colspan="2">
-                                                <h4 style="display: inline-block;">Informações do livro</h4>
-                                                
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <th>@Html.DisplayNameFor(model => model.Book.Titulo):</th>
-                                            <td>@Html.DisplayFor(model => model.Book.Titulo)</td>
-                                        </tr>
-                                        <tr>
-                                            <th>@Html.DisplayNameFor(model => model.Book.Autor):</th>
-                                            <td>@Html.DisplayFor(model => model.Book.Autor)</td>
-                                        </tr>
-                                        <tr>
-                                            <th>@Html.DisplayNameFor(model => model.Book.NumeroPaginas):</th>
-                                            <td>@Html.DisplayFor(model => model.Book.NumeroPaginas)</td>
-                                        </tr>
-                                        <tr>
-                                            <th>@Html.DisplayNameFor(model => model.Book.NumeroPaginas):</th>
-                                            <td>@Html.DisplayFor(model => model.Book.NumeroPaginas)</td>
-                                        </tr>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Book.Titulo):</th>
+                                    <td>@Html.DisplayFor(model => model.Book.Titulo)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Book.Autor):</th>
+                                    <td>@Html.DisplayFor(model => model.Book.Autor)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Book.NumeroPaginas):</th>
+                                    <td>@Html.DisplayFor(model => model.Book.NumeroPaginas)</td>
+                                </tr>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Book.NumeroPaginas):</th>
+                                    <td>@Html.DisplayFor(model => model.Book.NumeroPaginas)</td>
+                                </tr>
 
 
-                                    </tbody>
-                               
-                            </table>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="btn btn-danger pull-right" onclick="location.href = '@(Url.Action("Remove", "Exemplar", new { id = Model.Id }))'">Excluir</button>
-        </div>
+                            </tbody>
+
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-danger pull-right" onclick="location.href = '@(Url.Action("Remove", "Exemplar", new { id = Model.Id }))'">Excluir</button>
     </div>
+</div>
 
 
     <style>

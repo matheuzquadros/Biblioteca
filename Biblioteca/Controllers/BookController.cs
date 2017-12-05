@@ -3,6 +3,7 @@ using Biblioteca.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,9 +21,17 @@ namespace Biblioteca.Controllers
         // GET: Book
         public ActionResult Index()
         {
-            var viewModel =  _context.Books.ToList();
+            var viewModel = _context.Books.Include("Categoria").ToList();
+
+            if (User.IsInRole("CanManageCustomers"))
+            {
+                return View(viewModel);
+            }
+            else
+            {
+                return View("IndexReadOnly", viewModel);
+            }
             
-            return View(viewModel);
         }
 
         public ActionResult Details(int id)
@@ -31,7 +40,12 @@ namespace Biblioteca.Controllers
             if (book == null)
             {
                 return HttpNotFound();
-            }else
+            }
+            else if (User.IsInRole("CanManageCustomers") == false)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+            else
             {
                 book.Categoria = _context.Category.ToList().Where(c => c.Id == book.CategoriaId).SingleOrDefault();
                 return View(book);
@@ -40,6 +54,9 @@ namespace Biblioteca.Controllers
 
         public ActionResult New()
         {
+            if(User.IsInRole("CanManageCustomers") == false){
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
 
             var viewModel = new BookFormViewModel()
             {
@@ -54,6 +71,10 @@ namespace Biblioteca.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Save(Book book) 
         {
+            if(User.IsInRole("CanManageCustomers") == false){
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+
             if (!ModelState.IsValid)
             {
                 var viewModel = new BookFormViewModel()
@@ -92,6 +113,10 @@ namespace Biblioteca.Controllers
 
         public ActionResult Edit(int id)
         {
+            if(User.IsInRole("CanManageCustomers") == false){
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
+
             var book = _context.Books.SingleOrDefault(c => c.Id == id);
 
             if (book == null)
@@ -109,6 +134,9 @@ namespace Biblioteca.Controllers
 
         public ActionResult Remove(int id)
        {
+           if(User.IsInRole("CanManageCustomers") == false){
+              return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+           }
            var client = _context.Books.Single(m => m.Id == id);
 
            if (client != null) _context.Books.Remove(client);

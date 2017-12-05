@@ -4,54 +4,44 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <h4>Cliente</h4>
+    <div class="form-container">
+        <h2>Informações do cliente</h2>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Nome, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Nome)
-                @Html.ValidationMessageFor(model => model.Nome)
-            </div>
+            @Html.LabelFor(model => model.Nome, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Nome, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Nome)
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Email)
-                @Html.ValidationMessageFor(model => model.Email)
-            </div>
+            @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Email)
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Cpf, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Cpf)
-                @Html.ValidationMessageFor(model => model.Cpf)
-            </div>
+            @Html.LabelFor(model => model.Cpf, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Cpf, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Cpf)
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.DataNascimento, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DataNascimento)
-                @Html.ValidationMessageFor(model => model.DataNascimento)
-            </div>
+            @Html.LabelFor(model => model.DataNascimento, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.DataNascimento, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DataNascimento)
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Senha, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Senha)
-                @Html.ValidationMessageFor(model => model.Senha)
-            </div>
+            @Html.LabelFor(model => model.Senha, new { @class = "control-label" })
+            @Html.TextBoxFor(model => model.Senha, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Senha)
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
+            <div class="col-md-10">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>

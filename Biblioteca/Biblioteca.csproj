@@ -312,6 +312,10 @@
     <Content Include="Views\Categoria\Edit.cshtml" />
     <Content Include="Views\Exemplar\Edit.cshtml" />
     <Content Include="Views\Cliente\Edit.cshtml" />
+    <Content Include="Views\Book\IndexReadOnly.cshtml" />
+    <Content Include="Views\Exemplar\IndexReadOnly.cshtml" />
+    <Content Include="Views\Cliente\IndexReadOnly.cshtml" />
+    <Content Include="Views\Categoria\IndexReadOnly.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

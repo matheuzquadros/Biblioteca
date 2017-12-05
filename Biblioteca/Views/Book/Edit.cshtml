@@ -4,14 +4,12 @@
     ViewBag.Title = "Editar Livro";
 }
 
-<h2>Edit</h2>
-
 @using (Html.BeginForm("Save", "Book"))
 {   
 
     <div class="row ">
         <div class="form-container">
-            <h4>Book</h4>
+            <h2>Informações do livro</h2>
             <hr />
             @Html.ValidationSummary(true)
             @Html.AntiForgeryToken()
